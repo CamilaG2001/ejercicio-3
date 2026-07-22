@@ -1,276 +1,290 @@
-:root{
+/* ============================================================
+   RESET GLOBAL
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+a { text-decoration: none; color: inherit; }
+
+
+/* ============================================================
+   SECCIÓN 1 — Persona 1 (busto + robot)
+   ============================================================ */
+.s1-hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 80px;
+  gap: 60px;
+  background: #0d0a14;
+  font-family: Arial, sans-serif;
+}
+.s1-imagenes {
+  position: relative;
+  width: 500px;
+  height: 450px;
+  flex-shrink: 0;
+}
+.s1-busto {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 280px;
+  transition: transform 0.5s ease;
+}
+.s1-robot {
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+  width: 300px;
+  transition: transform 0.5s ease;
+}
+.s1-busto:hover,
+.s1-robot:hover { transform: scale(1.05); }
+.s1-contenido { color: white; max-width: 500px; }
+.s1-contenido h1 {
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+.s1-acceso {
+  font-size: 15px;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.s1-acceso:hover { color: #f5c518; }
+
+
+/* ============================================================
+   SECCIÓN 2 — Persona 2 (header + hero mujeres + countdown)
+   ============================================================ */
+.s2 {
   --bg-dark: #12121a;
   --bg-dark-2: #1a1a24;
   --yellow: #f9c518;
   --white: #ffffff;
   --muted: #b8b8c2;
   --text-dark: #1a1a1a;
-}
-
-*{ box-sizing: border-box; margin:0; padding:0; }
-
-body{
   font-family: 'Georgia', 'Times New Roman', serif;
   background: var(--bg-dark);
   color: var(--white);
+  display: block;
 }
 
-a{ text-decoration:none; color:inherit; }
-
-/* ---------- HEADER ---------- */
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.s2-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 18px 60px;
   background: var(--bg-dark);
 }
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-family: Arial, sans-serif;
-}
-
-/* Placeholder del logo (IMAGEN 1). Si se usa <img>, esta clase
-   sigue aplicando el tamaño y forma circular. */
-.logo-icon{
-  width:42px;
-  height:42px;
-  border-radius:50%;
+.s2-logo { display: flex; align-items: center; gap: 10px; font-family: Arial, sans-serif; }
+.s2-logo-icon {
+  width: 42px; height: 42px; border-radius: 50%;
   background: linear-gradient(135deg, var(--yellow), #d99a00);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-  color:#12121a;
-  font-size:18px;
-  object-fit: cover;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: bold; color: #12121a; font-size: 18px;
+}
+.s2-logo-text .top { font-size: 20px; font-weight: bold; }
+.s2-logo-text .top span { color: var(--yellow); }
+.s2-logo-text .bottom {
+  font-size: 10px; letter-spacing: 2px; color: var(--muted); font-family: Arial, sans-serif;
+}
+.s2-nav ul {
+  list-style: none; display: flex; gap: 36px;
+  font-family: Arial, sans-serif; font-size: 15px;
+}
+.s2-nav ul li.active a { color: var(--yellow); }
+.s2-nav ul li a { color: var(--white); transition: color .2s; }
+.s2-nav ul li a:hover { color: var(--yellow); }
+.s2-header-right { display: flex; align-items: center; gap: 18px; }
+.s2-search-box {
+  background: var(--bg-dark-2); border: 1px solid #33333e; border-radius: 20px;
+  padding: 8px 18px; font-size: 13px; color: var(--muted);
+  font-family: Arial, sans-serif; width: 160px;
+}
+.s2-icon-circle {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid #33333e;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-family: Arial, sans-serif;
+}
+.s2-menu-btn {
+  width: 34px; height: 34px; border-radius: 6px; background: #2a2a35;
+  display: flex; align-items: center; justify-content: center; font-size: 12px;
 }
 
-.logo-text .top{
-  font-size:20px;
-  font-weight:bold;
-}
-.logo-text .top span{ color: var(--yellow); }
-.logo-text .bottom{
-  font-size:10px;
-  letter-spacing:2px;
-  color: var(--muted);
-  font-family: Arial, sans-serif;
-}
-
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:36px;
-  font-family: Arial, sans-serif;
-  font-size:15px;
-}
-
-nav ul li a{
-  color: var(--white);
-  transition: color .2s;
-}
-
-nav ul li.active a{ color: var(--yellow); }
-nav ul li a:hover{ color: var(--yellow); }
-
-.header-right{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
-.search-box{
-  background: var(--bg-dark-2);
-  border: 1px solid #33333e;
-  border-radius: 20px;
-  padding: 8px 18px;
-  font-size:13px;
-  color: var(--muted);
-  font-family: Arial, sans-serif;
-  width: 160px;
-}
-
-.icon-circle{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  border:1px solid #33333e;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
-  font-family: Arial, sans-serif;
-}
-
-.menu-btn{
-  width:34px;
-  height:34px;
-  border-radius:6px;
-  background:#2a2a35;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:12px;
-}
-
-/* ---------- HERO ---------- */
-.hero{
-  position:relative;
-  display:grid;
+.s2-hero {
+  position: relative;
+  display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  align-items:center;
+  align-items: center;
   padding: 60px 60px 0 60px;
-  overflow: visible;
-  background-image: url("img/fondo.png");
+  background-image: url("fondo.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+.s2-hero-text h1 { font-size: 64px; line-height: 1.15; font-weight: bold; }
+.s2-hero-text p { margin-top: 24px; color: var(--muted); font-family: Arial, sans-serif; font-size: 15px; }
+.s2-btn-primary {
+  display: inline-block; margin-top: 32px;
+  background: var(--yellow); color: var(--text-dark);
+  font-family: Arial, sans-serif; font-weight: bold; font-size: 14px;
+  padding: 16px 34px; border-radius: 4px;
+  transition: transform .2s;
+}
+.s2-btn-primary:hover { transform: scale(1.05); }
+.s2-hero-visual { position: relative; height: 460px; display: flex; justify-content: center; align-items: flex-end; }
+.s2-hero-img { max-width: 100%; height: 460px; width: auto; object-fit: contain; object-position: bottom; }
 
-.hero-text h1{
-  font-size: 64px;
-  line-height: 1.15;
-  font-weight: bold;
+.s2-banner-wrap { margin-top: 40px; padding: 0 60px 60px 60px; }
+.s2-banner {
+  background: var(--yellow); color: var(--text-dark);
+  border-radius: 24px 90px 24px 24px; padding: 50px 60px;
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  align-items: center; gap: 30px; position: relative;
+}
+.s2-banner h2 { font-size: 40px; font-weight: bold; margin-bottom: 14px; }
+.s2-banner p { font-family: Arial, sans-serif; font-size: 14px; color: #4a4a3a; margin-bottom: 28px; }
+.s2-countdown { display: flex; gap: 40px; }
+.s2-unit { text-align: left; }
+.s2-unit .num { font-size: 36px; font-weight: bold; line-height: 1; }
+.s2-unit .label { font-family: Arial, sans-serif; font-size: 13px; margin-top: 6px; color: #4a4a3a; }
+.s2-avatars { display: flex; justify-content: flex-end; gap: 22px; }
+.s2-avatar {
+  width: 100px; height: 100px; border-radius: 50%;
+  border: 3px solid var(--bg-dark); object-fit: cover; display: block;
+}
+.s2-avatar:nth-child(2) { transform: translateY(20px); }
+.s2-scroll-top {
+  position: absolute; bottom: -22px; right: 30px;
+  width: 46px; height: 46px; border-radius: 50%; background: var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dark); font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,.3);
 }
 
-.hero-text p{
-  margin-top: 24px;
-  color: var(--muted);
-  font-family: Arial, sans-serif;
-  font-size: 15px;
+
+/* ============================================================
+   SECCIÓN 3 — Persona 3 (topbar + header + hero personaje)
+   ============================================================ */
+.s3 {
+  --topbar-bg: #1e2a3a;
+  --topbar-link: #4d9bd6;
+  --header-bg: #0b0b12;
+  --accent: #f5b301;
+  --pink: #d02d70;
+  --pink-soft: #f3c9dc;
+  --dark-arch: #14141c;
+  --search-bg: #0f0f18;
+  --white: #ffffff;
+  font-family: 'Poppins', system-ui, sans-serif;
+  background: var(--pink);
+  color: var(--white);
+  line-height: 1.5;
+  display: block;
 }
 
-.btn-primary{
-  display:inline-block;
-  margin-top: 32px;
-  background: var(--yellow);
-  color: var(--text-dark);
-  font-family: Arial, sans-serif;
-  font-weight:bold;
-  font-size: 14px;
-  padding: 16px 34px;
-  border-radius: 4px;
+.s3-topbar { background: var(--topbar-bg); font-size: 15px; }
+.s3-topbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding: 14px 40px;
 }
-
-.hero-visual{
-  position:relative;
-  height: 460px;
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
+.s3-topbar-title { display: flex; align-items: center; gap: 10px; color: var(--topbar-link); font-weight: 500; }
+.s3-topbar-title .arrow { font-size: 12px; opacity: .9; }
+.s3-btn-outline {
+  border: 1px solid rgba(255,255,255,.55); background: transparent; color: var(--white);
+  padding: 10px 22px; border-radius: 4px; font-family: inherit; font-size: 15px;
+  white-space: nowrap; cursor: pointer; transition: background .2s, border-color .2s;
 }
+.s3-btn-outline:hover { background: rgba(255,255,255,.1); border-color: #fff; }
 
-/* Imagen principal del hero (mujeres.png) */
-.hero-img{
-  max-width: 100%;
-  height: 460px;
-  width: auto;
-  object-fit: contain;
-  object-position: bottom;
+.s3-header { background: var(--header-bg); }
+.s3-header-inner { display: flex; align-items: center; gap: 40px; padding: 18px 40px; }
+.s3-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.s3-logo-badge {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #b98b57, #6b4a2a);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; box-shadow: 0 0 0 2px #2a2a33;
 }
-
-/* ---------- REMAINING TIME BANNER ---------- */
-.banner-wrap{
-  margin-top: 40px;
-  padding: 0 60px 60px 60px;
+.s3-logo-text { line-height: 1; }
+.s3-logo-text .name { font-size: 26px; font-weight: 700; letter-spacing: .5px; color: var(--white); }
+.s3-logo-text .name b { color: var(--accent); }
+.s3-logo-text .sub {
+  display: block; font-size: 11px; letter-spacing: 3px; color: var(--accent);
+  font-weight: 600; margin-top: 2px;
 }
-
-.banner{
-  background: var(--yellow);
-  color: var(--text-dark);
-  border-radius: 24px 90px 24px 24px;
-  padding: 50px 60px;
-  display:grid;
-  grid-template-columns: 1.3fr 1fr;
-  align-items:center;
-  gap: 30px;
-  position:relative;
+.s3-nav { display: flex; align-items: center; gap: 34px; flex: 1; }
+.s3-nav a {
+  color: var(--white); font-size: 16px; font-weight: 500;
+  display: flex; align-items: center; gap: 6px; transition: color .2s;
 }
-
-.banner h2{
-  font-size: 40px;
-  font-weight:bold;
-  margin-bottom: 14px;
+.s3-nav a:hover, .s3-nav a.active { color: var(--accent); }
+.s3-nav .caret { font-size: 11px; }
+.s3-header-right { display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
+.s3-search {
+  display: flex; align-items: center; background: var(--search-bg);
+  border: 1px solid #24242f; border-radius: 8px; padding: 0 16px; height: 46px; width: 300px;
 }
-
-.banner p{
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color:#4a4a3a;
-  margin-bottom: 28px;
+.s3-search input {
+  background: transparent; border: none; outline: none; color: var(--white);
+  font-family: inherit; font-size: 15px; width: 100%;
 }
+.s3-search input::placeholder { color: #8a8a97; }
+.s3-socials { display: flex; align-items: center; gap: 16px; }
+.s3-socials a { color: var(--white); display: flex; transition: color .2s; }
+.s3-socials a:hover { color: var(--accent); }
 
-.countdown{
-  display:flex;
-  gap: 40px;
+.s3-hero { background: var(--pink); overflow: hidden; }
+.s3-hero-inner {
+  display: grid; grid-template-columns: 1.1fr 1fr; align-items: center;
+  min-height: 640px; padding: 60px 40px 0;
 }
-
-.countdown .unit{
-  text-align:left;
+.s3-hero-left { max-width: 560px; padding-left: 20px; }
+.s3-hero-left h1 {
+  font-size: 72px; font-weight: 700; line-height: 1.05;
+  letter-spacing: -1px; margin-bottom: 28px;
 }
-
-.countdown .unit .num{
-  font-size: 36px;
-  font-weight:bold;
-  line-height:1;
+.s3-hero-left p { font-size: 18px; color: var(--pink-soft); max-width: 470px; margin-bottom: 40px; }
+.s3-cta { color: var(--white); font-size: 17px; font-weight: 500; position: relative; display: inline-block; }
+.s3-cta::after {
+  content: ""; position: absolute; left: 0; bottom: -6px;
+  width: 0; height: 2px; background: var(--white); transition: width .25s;
 }
-
-.countdown .unit .label{
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  margin-top: 6px;
-  color:#4a4a3a;
+.s3-cta:hover::after { width: 100%; }
+.s3-hero-right {
+  position: relative; align-self: end; height: 100%;
+  display: flex; align-items: flex-end; justify-content: center;
 }
-
-.avatars{
-  display:flex;
-  justify-content:flex-end;
-  gap: 22px;
+.s3-arch {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 340px; height: 520px; background: var(--dark-arch); border-radius: 170px 170px 0 0;
 }
+.s3-character { position: relative; z-index: 2; width: 420px; max-width: 100%; height: 600px; }
+.s3-character img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; }
 
-/* Avatares reales: gato.jpg, niño.jpg, hombre.jpg */
-.avatar-placeholder{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 3px solid var(--bg-dark);
-  object-fit: cover;
-  display:block;
-}
 
-.avatar-placeholder:nth-child(2){
-  transform: translateY(20px);
-}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .s1-hero { flex-direction: column; padding: 30px 20px; text-align: center; }
+  .s1-imagenes { width: 100%; }
 
-.scroll-top{
-  position:absolute;
-  bottom: -22px;
-  right: 30px;
-  width: 46px;
-  height: 46px;
-  border-radius:50%;
-  background: var(--yellow);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color: var(--text-dark);
-  font-weight:bold;
-  box-shadow: 0 4px 12px rgba(0,0,0,.3);
-}
+  .s2-header { padding: 16px 20px; }
+  .s2-nav { display: none; }
+  .s2-hero { grid-template-columns: 1fr; padding: 30px 20px 0; text-align: center; }
+  .s2-hero-text h1 { font-size: 40px; }
+  .s2-hero-visual { margin-top: 40px; height: 320px; }
+  .s2-hero-img { height: 300px; }
+  .s2-banner-wrap { padding: 30px 20px; }
+  .s2-banner { grid-template-columns: 1fr; border-radius: 24px; padding: 30px; }
+  .s2-avatars { justify-content: center; margin-top: 20px; }
+  .s2-countdown { gap: 20px; }
 
-@media (max-width: 900px){
-  header{ padding: 16px 20px; }
-  nav{ display:none; }
-  .hero{ grid-template-columns: 1fr; padding: 30px 20px 0 20px; text-align:center; }
-  .hero-text h1{ font-size: 40px; }
-  .hero-visual{ margin-top: 40px; height: 320px; }
-  .hero-img{ height: 300px; }
-  .banner-wrap{ padding: 30px 20px; }
-  .banner{ grid-template-columns: 1fr; border-radius: 24px; padding: 30px; }
-  .avatars{ justify-content:center; margin-top: 20px; }
-  .countdown{ gap: 20px; }
+  .s3-header-inner { flex-wrap: wrap; gap: 20px; }
+  .s3-nav { display: none; }
+  .s3-hero-inner { grid-template-columns: 1fr; text-align: center; min-height: auto; }
+  .s3-hero-left { padding-left: 0; margin: 0 auto; }
+  .s3-hero-left h1 { font-size: 42px; }
 }
