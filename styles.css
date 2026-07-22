@@ -1,0 +1,276 @@
+:root{
+  --bg-dark: #12121a;
+  --bg-dark-2: #1a1a24;
+  --yellow: #f9c518;
+  --white: #ffffff;
+  --muted: #b8b8c2;
+  --text-dark: #1a1a1a;
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+
+body{
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--bg-dark);
+  color: var(--white);
+}
+
+a{ text-decoration:none; color:inherit; }
+
+/* ---------- HEADER ---------- */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 60px;
+  background: var(--bg-dark);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family: Arial, sans-serif;
+}
+
+/* Placeholder del logo (IMAGEN 1). Si se usa <img>, esta clase
+   sigue aplicando el tamaño y forma circular. */
+.logo-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background: linear-gradient(135deg, var(--yellow), #d99a00);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#12121a;
+  font-size:18px;
+  object-fit: cover;
+}
+
+.logo-text .top{
+  font-size:20px;
+  font-weight:bold;
+}
+.logo-text .top span{ color: var(--yellow); }
+.logo-text .bottom{
+  font-size:10px;
+  letter-spacing:2px;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:36px;
+  font-family: Arial, sans-serif;
+  font-size:15px;
+}
+
+nav ul li a{
+  color: var(--white);
+  transition: color .2s;
+}
+
+nav ul li.active a{ color: var(--yellow); }
+nav ul li a:hover{ color: var(--yellow); }
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.search-box{
+  background: var(--bg-dark-2);
+  border: 1px solid #33333e;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size:13px;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  width: 160px;
+}
+
+.icon-circle{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid #33333e;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  font-family: Arial, sans-serif;
+}
+
+.menu-btn{
+  width:34px;
+  height:34px;
+  border-radius:6px;
+  background:#2a2a35;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items:center;
+  padding: 60px 60px 0 60px;
+  overflow: visible;
+  background-image: url("img/fondo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-text h1{
+  font-size: 64px;
+  line-height: 1.15;
+  font-weight: bold;
+}
+
+.hero-text p{
+  margin-top: 24px;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.btn-primary{
+  display:inline-block;
+  margin-top: 32px;
+  background: var(--yellow);
+  color: var(--text-dark);
+  font-family: Arial, sans-serif;
+  font-weight:bold;
+  font-size: 14px;
+  padding: 16px 34px;
+  border-radius: 4px;
+}
+
+.hero-visual{
+  position:relative;
+  height: 460px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+
+/* Imagen principal del hero (mujeres.png) */
+.hero-img{
+  max-width: 100%;
+  height: 460px;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+/* ---------- REMAINING TIME BANNER ---------- */
+.banner-wrap{
+  margin-top: 40px;
+  padding: 0 60px 60px 60px;
+}
+
+.banner{
+  background: var(--yellow);
+  color: var(--text-dark);
+  border-radius: 24px 90px 24px 24px;
+  padding: 50px 60px;
+  display:grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items:center;
+  gap: 30px;
+  position:relative;
+}
+
+.banner h2{
+  font-size: 40px;
+  font-weight:bold;
+  margin-bottom: 14px;
+}
+
+.banner p{
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color:#4a4a3a;
+  margin-bottom: 28px;
+}
+
+.countdown{
+  display:flex;
+  gap: 40px;
+}
+
+.countdown .unit{
+  text-align:left;
+}
+
+.countdown .unit .num{
+  font-size: 36px;
+  font-weight:bold;
+  line-height:1;
+}
+
+.countdown .unit .label{
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  margin-top: 6px;
+  color:#4a4a3a;
+}
+
+.avatars{
+  display:flex;
+  justify-content:flex-end;
+  gap: 22px;
+}
+
+/* Avatares reales: gato.jpg, niño.jpg, hombre.jpg */
+.avatar-placeholder{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-dark);
+  object-fit: cover;
+  display:block;
+}
+
+.avatar-placeholder:nth-child(2){
+  transform: translateY(20px);
+}
+
+.scroll-top{
+  position:absolute;
+  bottom: -22px;
+  right: 30px;
+  width: 46px;
+  height: 46px;
+  border-radius:50%;
+  background: var(--yellow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--text-dark);
+  font-weight:bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+@media (max-width: 900px){
+  header{ padding: 16px 20px; }
+  nav{ display:none; }
+  .hero{ grid-template-columns: 1fr; padding: 30px 20px 0 20px; text-align:center; }
+  .hero-text h1{ font-size: 40px; }
+  .hero-visual{ margin-top: 40px; height: 320px; }
+  .hero-img{ height: 300px; }
+  .banner-wrap{ padding: 30px 20px; }
+  .banner{ grid-template-columns: 1fr; border-radius: 24px; padding: 30px; }
+  .avatars{ justify-content:center; margin-top: 20px; }
+  .countdown{ gap: 20px; }
+}

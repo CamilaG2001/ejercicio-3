@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0d0a14;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 80px;
+  gap: 60px;
+}
+
+/* Zona de imágenes superpuestas */
+.imagenes {
+  position: relative;
+  width: 500px;
+  height: 450px;
+  flex-shrink: 0;
+}
+
+.busto {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 280px;
+  transition: transform 0.5s ease;
+}
+
+.robot {
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+  width: 300px;
+  transition: transform 0.5s ease;
+}
+
+/* TRANSICIÓN: al pasar el mouse, las imágenes crecen */
+.busto:hover,
+.robot:hover {
+  transform: scale(1.05);
+}
+
+/* Texto a la derecha */
+.contenido {
+  color: white;
+}
+
+.contenido h1 {
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+.acceso {
+  font-size: 15px;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* TRANSICIÓN: el texto cambia de color al pasar el mouse */
+.acceso:hover {
+  color: #f5c518;
+}
