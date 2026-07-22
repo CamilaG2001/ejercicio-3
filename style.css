@@ -1,0 +1,361 @@
+/* =========================================================
+   Nftis — réplica de la vista principal
+   Estructura: variables, base, topbar, header, hero, chat, responsive
+   ========================================================= */
+
+/* ---------- 1. Variables de color ---------- */
+:root{
+  --topbar-bg:   #1e2a3a;   /* azul marino de la barra superior */
+  --topbar-link: #4d9bd6;   /* texto azul claro */
+  --header-bg:   #0b0b12;   /* casi negro del menú */
+  --accent:      #f5b301;   /* amarillo/dorado (logo + Home activo) */
+  --pink:        #d02d70;   /* rosa del hero */
+  --pink-soft:   #f3c9dc;   /* texto del párrafo sobre rosa */
+  --dark-arch:   #14141c;   /* arco oscuro detrás del personaje */
+  --search-bg:   #0f0f18;
+  --chat:        #6b46f5;   /* burbuja de chat morada */
+  --white:       #ffffff;
+}
+
+/* ---------- 2. Base ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Poppins', system-ui, sans-serif;
+  background:var(--pink);
+  color:var(--white);
+  line-height:1.5;
+}
+
+a{ text-decoration:none; }
+
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+
+/* ---------- 3. Barra superior ---------- */
+.topbar{
+  background:var(--topbar-bg);
+  font-size:15px;
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:14px 40px;
+}
+.topbar-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--topbar-link);
+  font-weight:500;
+}
+.topbar-title .arrow{ font-size:12px; opacity:.9; }
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.55);
+  background:transparent;
+  color:var(--white);
+  padding:10px 22px;
+  border-radius:4px;
+  font-family:inherit;
+  font-size:15px;
+  white-space:nowrap;
+  cursor:pointer;
+  transition:background .2s, border-color .2s;
+}
+.btn-outline:hover{
+  background:rgba(255,255,255,.1);
+  border-color:#fff;
+}
+
+/* ---------- 4. Header / menú ---------- */
+.header{ background:var(--header-bg); }
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding:18px 40px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+.logo-badge{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:radial-gradient(circle at 40% 35%, #b98b57, #6b4a2a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  box-shadow:0 0 0 2px #2a2a33;
+}
+.logo-text{ line-height:1; }
+.logo-text .name{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:.5px;
+  color:var(--white);
+}
+.logo-text .name b{ color:var(--accent); }
+.logo-text .sub{
+  display:block;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-top:2px;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:34px;
+  flex:1;
+}
+.nav a{
+  color:var(--white);
+  font-size:16px;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:color .2s;
+}
+.nav a:hover,
+.nav a.active{ color:var(--accent); }
+.caret{ font-size:11px; }
+
+/* Botón hamburguesa (solo móvil) */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  padding:6px;
+  margin-left:auto;
+}
+.nav-toggle span{
+  width:26px;
+  height:2px;
+  background:var(--white);
+  border-radius:2px;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-shrink:0;
+}
+.search{
+  display:flex;
+  align-items:center;
+  background:var(--search-bg);
+  border:1px solid #24242f;
+  border-radius:8px;
+  padding:0 16px;
+  height:46px;
+  width:300px;
+}
+.search input{
+  background:transparent;
+  border:none;
+  outline:none;
+  color:var(--white);
+  font-family:inherit;
+  font-size:15px;
+  width:100%;
+}
+.search input::placeholder{ color:#8a8a97; }
+
+.socials{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.socials a{
+  color:var(--white);
+  display:flex;
+  transition:color .2s;
+}
+.socials a:hover{ color:var(--accent); }
+
+/* ---------- 5. Hero ---------- */
+.hero{
+  background:var(--pink);
+  overflow:hidden;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  align-items:center;
+  min-height:640px;
+  padding:60px 40px 0;
+}
+
+.hero-left{
+  max-width:560px;
+  padding-left:20px;
+}
+.hero-left h1{
+  font-size:72px;
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-1px;
+  margin-bottom:28px;
+}
+.hero-left p{
+  font-size:18px;
+  color:var(--pink-soft);
+  max-width:470px;
+  margin-bottom:40px;
+}
+.hero-left .cta{
+  color:var(--white);
+  font-size:17px;
+  font-weight:500;
+  position:relative;
+  display:inline-block;
+}
+.hero-left .cta::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--white);
+  transition:width .25s;
+}
+.hero-left .cta:hover::after{ width:100%; }
+
+/* Arco oscuro + personaje */
+.hero-right{
+  position:relative;
+  align-self:end;
+  height:100%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+.arch{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:340px;
+  height:520px;
+  background:var(--dark-arch);
+  border-radius:170px 170px 0 0;
+}
+.character{
+  position:relative;
+  z-index:2;
+  width:420px;
+  max-width:100%;
+  height:600px;
+}
+.character img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:bottom;
+  display:block;
+}
+
+/* ---------- 6. Chat flotante ---------- */
+.chat{
+  position:fixed;
+  right:26px;
+  bottom:22px;
+  width:58px;
+  height:58px;
+  border:none;
+  border-radius:14px;
+  background:var(--chat);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  cursor:pointer;
+  z-index:50;
+  transition:transform .2s;
+}
+.chat:hover{ transform:translateY(-3px); }
+
+/* ---------- 7. Responsive ---------- */
+@media (max-width:1100px){
+  .search{ width:200px; }
+  .nav{ gap:22px; }
+  .hero-left h1{ font-size:56px; }
+}
+
+@media (max-width:900px){
+  .topbar-inner,
+  .header-inner,
+  .hero-inner{ padding-left:20px; padding-right:20px; }
+
+  .header-inner{ flex-wrap:wrap; gap:20px; }
+
+  .nav-toggle{ display:flex; }
+
+  .nav{
+    order:3;
+    width:100%;
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .nav.open{ display:flex; }
+
+  .header-right{
+    order:4;
+    width:100%;
+    justify-content:space-between;
+  }
+  .search{ width:auto; flex:1; }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+    min-height:auto;
+  }
+  .hero-left{
+    padding-left:0;
+    margin:0 auto;
+  }
+  .hero-left p{ margin-left:auto; margin-right:auto; }
+  .hero-right{ margin-top:30px; }
+}
+
+@media (max-width:520px){
+  .topbar-inner{ flex-direction:column; align-items:flex-start; }
+  .topbar-title{ font-size:13px; }
+  .hero-left h1{ font-size:42px; }
+  .arch{ width:240px; height:360px; }
+  .character{ width:300px; height:420px; }
+}
+
+/* ---------- 8. Accesibilidad ---------- */
+@media (prefers-reduced-motion:reduce){
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
+  html{ scroll-behavior:auto; }
+}
